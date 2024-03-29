@@ -2,6 +2,7 @@ import { columns } from "./columns";
 import { DataTable } from "./data-table";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import "./globals.css";
 
 const DemoPage: React.FC = () => {
   const { data, isLoading, error } = useQuery({

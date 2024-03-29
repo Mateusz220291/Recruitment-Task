@@ -3,6 +3,8 @@ import {
   flexRender,
   getCoreRowModel,
   getPaginationRowModel,
+  getFilteredRowModel,
+  getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 
@@ -14,6 +16,10 @@ import {
   TableHeader,
   TableRow,
 } from "../components/ui/table";
+
+import { Button } from "../components/ui/button";
+
+import { Input } from "../components/ui/input";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -29,22 +35,36 @@ export function DataTable<TData, TValue>({
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getSortedRowModel: getSortedRowModel(),
   });
 
   return (
-    <>
-      <select
-        value={table.getState().pagination.pageSize}
-        onChange={(e) => {
-          table.setPageSize(Number(e.target.value));
-        }}
-      >
-        {[10, 20, 30].map((pageSize) => (
-          <option key={pageSize} value={pageSize}>
-            {pageSize}
-          </option>
-        ))}
-      </select>
+    <div className="group relative my-4 flex flex-col space-y-2 width">
+      <div className="w-full">
+        <div className="flex items-center justify-between py-4">
+          <Input
+            placeholder="Filter tag names"
+            value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
+            onChange={(event) =>
+              table.getColumn("name")?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm"
+          />
+          <select
+            value={table.getState().pagination.pageSize}
+            onChange={(e) => {
+              table.setPageSize(Number(e.target.value));
+            }}
+          >
+            {[5, 10, 15, 20, 30].map((pageSize) => (
+              <option key={pageSize} value={pageSize}>
+                Show {pageSize}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
 
       <div className="rounded-md border">
         <Table>
@@ -92,31 +112,42 @@ export function DataTable<TData, TValue>({
             )}
           </TableBody>
         </Table>
-        <button
+      </div>
+
+      <div className="h-2" />
+      <div className="flex items-center justify-center gap-2">
+        <Button
           onClick={() => table.firstPage()}
           disabled={!table.getCanPreviousPage()}
         >
           {"<<"}
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
         >
           {"<"}
-        </button>
-        <button
+        </Button>
+        <span className="flex items-center gap-1">
+          <div>Page</div>
+          <strong>
+            {table.getState().pagination.pageIndex + 1} of{" "}
+            {table.getPageCount().toLocaleString()}
+          </strong>
+        </span>
+        <Button
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >
           {">"}
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => table.lastPage()}
           disabled={!table.getCanNextPage()}
         >
           {">>"}
-        </button>
+        </Button>
       </div>
-    </>
+    </div>
   );
 }
