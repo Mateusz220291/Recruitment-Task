@@ -2,45 +2,30 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Opis projektu:
 
-In the project directory, you can run:
+Projekt to stronicowana tabela lub lista tagów wraz z liczbą powiązanych postów. Użytkownik ma możliwość konfiguracji liczby elementów na stronie, wyboru pola i kierunku sortowania poprzez interaktywny interfejs użytkownika. Aplikacja wykorzystuje gotową bibliotekę komponentów UI, MUI, do budowy interfejsu użytkownika. Do zarządzania stanem i pobierania danych użyto biblioteki React Query, która zapewnia szybkie i wydajne zarządzanie danymi.
 
-### `npm start`
+ ## Wybór bibliotek:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Tanstack Table: 
+Wybrano bibliotekę Tanstack Table do budowy stronicowanej tabeli lub listy tagów ze względu na jej elastyczność i wydajność. Tanstack Table oferuje bogate możliwości konfiguracji, w tym konfigurowalną liczbę elementów na stronie, sortowanie danych oraz łatwą integrację z innymi bibliotekami i narzędziami, co pozwala na szybką realizację założonych funkcjonalności.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### ShadcnUI: 
+ShadcnUI zostało wybrane do projektu jako gotowa biblioteka komponentów UI, która zapewnia estetyczny i konfigurowalny interfejs użytkownika. ShadcnUI oferuje bogatą bibliotekę gotowych komponentów, co znacznie przyspiesza proces budowy interfejsu aplikacji. Dodatkowo, ShadcnUI dobrze współpracuje z Tailwind CSS, co pozwala na łatwe dostosowanie stylów do własnych potrzeb.
 
-### `npm test`
+### Tailwind CSS: 
+ Wybrano Tailwind CSS do stylowania aplikacji ze względu na jego elastyczność i łatwość użycia. Tailwind CSS oferuje zestaw predefiniowanych klas CSS, które można łatwo wykorzystać do stylizacji komponentów bez potrzeby pisania dodatkowego własnego CSS. Dodatkowo, Tailwind CSS współpracuje dobrze z ShadcnUI, co pozwala na szybkie dostosowanie stylów do interfejsu użytkownika.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### React Query: 
+Wybór React Query do zarządzania stanem i pobierania danych motywowany jest jego wydajnością, elastycznością i łatwością użycia. React Query oferuje wiele zaawansowanych funkcji, takich jak cache'owanie danych, obsługa błędów i refetching, co pozwala na szybkie i wydajne zarządzanie danymi w aplikacji. Ponadto, React Query jest dobrze zintegrowany z Reactem i zapewnia przejrzysty interfejs API, co ułatwia jego użycie w aplikacjach React.
 
-### `npm run build`
+## Uruchamianie projektu:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Aby uruchomić projekt, wykonaj następujące komendy:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+npm ci - Instaluje zależności projektu.
+npm start - Uruchamia aplikację.
+npm run storybook - Uruchamia Storybook do prezentacji wykorzystanych komponentów.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Dzięki wykorzystaniu Tanstack Table, ShadcnUI i React Query, projekt zapewnia wydajne i atrakcyjne interfejsy użytkownika, elastyczne zarządzanie stanem i pobieraniem danych oraz łatwą konfigurację i dostosowanie do własnych potrzeb.
