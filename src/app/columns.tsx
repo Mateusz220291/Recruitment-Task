@@ -26,11 +26,13 @@ export const columns: ColumnDef<Data>[] = [
     },
     cell: ({ row }) => <div className="lowercase">{row.getValue("name")}</div>,
   },
+
   {
     accessorKey: "count",
     header: ({ column }) => {
       return (
         <Button
+          className="ml-auto"
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
@@ -39,6 +41,8 @@ export const columns: ColumnDef<Data>[] = [
         </Button>
       );
     },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("count")}</div>,
+    cell: ({ row }) => (
+      <div className="lowercase text-right">{row.getValue("count")}</div>
+    ),
   },
 ];
