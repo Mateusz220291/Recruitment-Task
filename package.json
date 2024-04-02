@@ -51,9 +51,9 @@
       "last 1 safari version"
     ]
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "description": "The project is a paginated table or list of tags along with the number of associated posts. Users have the ability to configure the number of items per page, select a field, and sort direction through an interactive user interface. The application utilizes the ShadcnUI library, a ready-made UI component library, for building the user interface. React Query library is used for state management and data fetching, providing fast and efficient data management.",
   "main": "index.js",
-  "author": "",
+  "author": "Mateusz Mikla",
   "license": "ISC",
   "devDependencies": {
     "tailwindcss": "^3.4.3"
