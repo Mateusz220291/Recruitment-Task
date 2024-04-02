@@ -19,8 +19,9 @@ export const columns: ColumnDef<Data>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Email
+          Tag
           <ArrowUpDown className="ml-2 h-4 w-4" />
+          <span className="sr-only">Sort from largest/smallest</span>
         </Button>
       );
     },
@@ -36,8 +37,9 @@ export const columns: ColumnDef<Data>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Count
+          Posts related
           <ArrowUpDown className="ml-2 h-4 w-4" />
+          <span className="sr-only">Sort alphabetically</span>
         </Button>
       );
     },

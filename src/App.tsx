@@ -1,15 +1,18 @@
 import "./App.css";
-import DemoPage from "./app/page";
+import TablePage from "./app/page";
 
-function App() {
+export default function App() {
   return (
     <>
-      <header>Mój Header</header>
-      <div className="max-w-screen-sm mx-auto">
-        <DemoPage></DemoPage>
-      </div>
+      <header className="header">
+        <h1>
+          Recruitment Task in <span className="highlight"> React</span>
+        </h1>
+        <p>Stack Overflow tag table with the number of related posts.</p>
+      </header>
+      <main className="main">
+        <TablePage />
+      </main>
     </>
   );
 }
-
-export default App;
