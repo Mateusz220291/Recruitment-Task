@@ -23,7 +23,7 @@ const TablePage: React.FC = () => {
         <Blocks
           height="80"
           width="80"
-          color="#4fa94d"
+          color="#1e9ff5"
           ariaLabel="blocks-loading"
           wrapperStyle={{ margin: "0 auto" }}
           wrapperClass="blocks-wrapper"
@@ -37,7 +37,9 @@ const TablePage: React.FC = () => {
       <div className="container mx-auto py-10 bg-white">
         <div className="flex justify-center">
           <OctagonAlert color="#ff0000" className="mr-2" />
-          <p className="text-center">An error has occurred: {error.message}</p>
+          <p className="text-center text-lg">
+            An error has occurred: {error.message}
+          </p>
         </div>
       </div>
     );

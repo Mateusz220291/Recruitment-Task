@@ -1,10 +1,4 @@
-import React from "react";
-import {
-  ChevronsLeft,
-  ChevronLeft,
-  ChevronsRight,
-  ChevronRight,
-} from "lucide-react";
+import { useMemo } from "react";
 
 import {
   ColumnDef,
@@ -25,17 +19,8 @@ import {
   TableRow,
 } from "../components/ui/table";
 
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../components/ui/select";
-
-import { Button } from "../components/ui/button";
-
-import { Input } from "../components/ui/input";
+import { DataTablePagination } from "./data-table-pagination";
+import { DataTableToolbar } from "./data-table-toolbar";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -46,8 +31,8 @@ export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
-  const finalData = React.useMemo(() => data, []);
-  const finalColumns = React.useMemo(() => columns, []);
+  const finalData = useMemo(() => data, []);
+  const finalColumns = useMemo(() => columns, []);
 
   const table = useReactTable({
     data: finalData,
@@ -60,41 +45,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="group relative my-4 flex flex-col space-y-2 width bg-white p-2">
-      <div className="w-full">
-        <div className="flex items-center justify-between py-4">
-          <Input
-            placeholder="Filter tag names"
-            value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
-            onChange={(event) =>
-              table.getColumn("name")?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm mr-3"
-          />
-          <div className="flex items-center space-x-2">
-            <p className="text-sm font-medium">Rows per page</p>
-            <Select
-              value={`${table.getState().pagination.pageSize}`}
-              onValueChange={(value) => {
-                table.setPageSize(Number(value));
-              }}
-            >
-              <SelectTrigger className="h-8 w-[70px]">
-                <SelectValue
-                  placeholder={table.getState().pagination.pageSize}
-                />
-              </SelectTrigger>
-              <SelectContent side="top">
-                {[5, 10, 15, 20, 30].map((pageSize) => (
-                  <SelectItem key={pageSize} value={`${pageSize}`}>
-                    {pageSize}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-      </div>
-
+      <DataTableToolbar table={table} />
       <div className="rounded-md border">
         <Table>
           <TableHeader>
@@ -142,45 +93,8 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
-
       <div className="h-2" />
-      <div className="flex items-center justify-center gap-2">
-        <Button
-          onClick={() => table.firstPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          <span className="sr-only">Go to first page</span>
-          <ChevronsLeft className="h-4 w-4" />
-        </Button>
-        <Button
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          <span className="sr-only">Go to previous page</span>
-          <ChevronLeft className="h-4 w-4" />
-        </Button>
-        <span className="flex items-center gap-1">
-          <div>Page</div>
-          <strong>
-            {table.getState().pagination.pageIndex + 1} of{" "}
-            {table.getPageCount().toLocaleString()}
-          </strong>
-        </span>
-        <Button
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          <span className="sr-only">Go to next page</span>
-          <ChevronRight className="h-4 w-4" />
-        </Button>
-        <Button
-          onClick={() => table.lastPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          <span className="sr-only">Go to last page</span>
-          <ChevronsRight className="h-4 w-4" />
-        </Button>
-      </div>
+      <DataTablePagination table={table}></DataTablePagination>
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default function App() {
         <h1>
           Recruitment Task in <span className="highlight"> React</span>
         </h1>
-        <p>Stack Overflow tag table with the number of related posts.</p>
+        <p>Stack Overflow tag table with the number of related posts:</p>
       </header>
       <main className="main">
         <TablePage />
