@@ -35,13 +35,13 @@ export function DataTableToolbar<TData>({
               table.setPageSize(Number(value));
             }}
           >
-            <SelectTrigger className="h-8 w-[70px]">
-              <SelectValue
-                aria-label={`Rows per page: ${
-                  table.getState().pagination.pageSize
-                }`}
-                placeholder={table.getState().pagination.pageSize}
-              />
+            <SelectTrigger
+              className="h-8 w-[70px]"
+              aria-label={`Rows per page: ${
+                table.getState().pagination.pageSize
+              }`}
+            >
+              <SelectValue placeholder={table.getState().pagination.pageSize} />
             </SelectTrigger>
             <SelectContent side="top">
               {[5, 10, 15, 20, 30].map((pageSize) => (

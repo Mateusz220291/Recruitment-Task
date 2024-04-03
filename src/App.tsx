@@ -4,13 +4,11 @@ import TablePage from "./app/page";
 export default function App() {
   return (
     <>
-      <header className="header">
-        <h1>
-          Recruitment Task in <span className="highlight"> React</span>
-        </h1>
+      <header className="gap-12 px-8 my-8 mx-auto w-90 max-w-3xl text-gray-300 text-lg">
+        <h1 className="text-4xl mb-4">Recruitment Task in React</h1>
         <p>Stack Overflow tag table with the number of related posts:</p>
       </header>
-      <main className="main">
+      <main>
         <TablePage />
       </main>
     </>

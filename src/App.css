@@ -1,40 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Montserrat:wght@400;700&display=swap");
-
 * {
   box-sizing: border-box;
-}
-
-html {
-  font-family: "Quicksand", sans-serif;
 }
 
 body {
   margin: 0;
   background: radial-gradient(#4f5664, #565d6d);
-}
-
-.header {
-  gap: 3rem;
-  margin: 2rem auto;
-  width: 90%;
-  max-width: 75rem;
-  color: #ddd6cb;
-  font-size: 1.5rem;
-}
-
-.header h1 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.highlight {
-  background: #1e9ff5;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.header p {
-  margin: 0;
 }
