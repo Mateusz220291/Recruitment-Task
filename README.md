@@ -35,3 +35,6 @@ npm start - Uruchamia aplikację.
 npm run storybook - Uruchamia Storybook do prezentacji wykorzystanych komponentów.
 
 Dzięki wykorzystaniu Tanstack Table, ShadcnUI i React Query, projekt zapewnia wydajne i atrakcyjne interfejsy użytkownika, elastyczne zarządzanie stanem i pobieraniem danych oraz łatwą konfigurację i dostosowanie do własnych potrzeb.
+
+## GitHub Pages:
+https://mateusz220291.github.io/Recruitment-Task/
