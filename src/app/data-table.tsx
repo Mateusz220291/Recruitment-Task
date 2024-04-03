@@ -25,11 +25,13 @@ import { DataTableToolbar } from "./data-table-toolbar";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  toolbarDisabled?: boolean;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  toolbarDisabled = true,
 }: DataTableProps<TData, TValue>) {
   const finalData = useMemo(() => data, []);
   const finalColumns = useMemo(() => columns, []);
@@ -45,7 +47,8 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="group relative my-4 flex flex-col space-y-2 width bg-white p-2">
-      <DataTableToolbar table={table} />
+      {toolbarDisabled && <DataTableToolbar table={table} />}
+
       <div className="rounded-md border">
         <Table>
           <TableHeader>
